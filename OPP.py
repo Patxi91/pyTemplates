@@ -1,25 +1,33 @@
-class Teacher:
-    def __init__(self, name, age, class_code):
-        self.name = name
-        self.age = age
-        self.class_code = class_code
+class Shape:
 
-    def welcome_students(self):
-        '''This is a description example'''
-        print('Welcome, dear students')
+    def __init__(self, color, is_polygon, description):
+        self.color = color
+        self.is_polygon = is_polygon
+        self.description = description
 
-class BiologyTeacher(Teacher):
+    def display_data(self):
+        print(f"\n=== {self.description.capitalize()} ===")
+        print("Color:", self.color)
+        print("Is the shape a polygon?", "Yes" if self.is_polygon else "No")
 
-    def welcome_students(self):
-        #Call method from the superclass
-        Teacher.welcome_students(self)
-        #Expanded functionality
-        print('Lets start our biology class')
+class Triangle(Shape):
 
-class PhysicsTeacher(Teacher):
+    def __init__(self, color, vertices, base, height):
+        Shape.__init__(self, color, True, "Triangle")
+        self.vertices = vertices
+        self.base = base
+        self.height = height
 
-    def welcome_students(self):
-        #Call method from the superclass
-        Teacher.welcome_students(self)
-        #Expanded functionality
-        print('Lets start our physics class')
+class Circle(Shape):
+
+    def __init__(self, color, radius):
+        Shape.__init__(self, color, False, "Circle")
+        self.radius = radius
+
+#Driver code
+
+triangle = Triangle("red", [(-2, 0), (2, 0), (0, 7)], 4, 7)
+circle = Circle("blue", 6.3)
+
+triangle.display_data()
+circle.display_data()
