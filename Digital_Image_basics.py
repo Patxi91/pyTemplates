@@ -30,3 +30,11 @@ plot(x[:2],y[:2],'r')
 plot(x[2:],y[2:],'ks:')
 show()
 
+
+# Adding Interactive Annotations
+im = array(Image.open(r'C:\Users\Patxi\Downloads\images\images\profile.jpg'))
+imshow(im)
+# Select 4 points manually
+pt = ginput(4)
+print('You selected: ', pt)
+show()
