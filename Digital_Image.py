@@ -29,3 +29,4 @@ plot(x,y,'r*')
 plot(x[:2],y[:2],'r')
 plot(x[2:],y[2:],'ks:')
 show()
+
