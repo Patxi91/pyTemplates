@@ -10,6 +10,7 @@ from skimage import data
     # Noise removal
     # De-blurring
     # Blurring
+    # Neighborhood processing
 
 # Mid Level: Extraction of attributes from Images, i.e.: edges, contours or regions extractions
     # Edge detection
@@ -24,7 +25,6 @@ thres[scanned >= threshold] = 255
 plt.imshow(thres, cmap = cm.gray)
 plt.show()
 
-    # Contrast enhancement
 
 # High Level: Analysis or interpretation of content of an Image
     # Segmentation / labeling
