@@ -1,9 +1,11 @@
-# Image filtering using the Python imaging library
 from PIL import Image
 from PIL import ImageFilter
 from pylab import *
+import scipy.ndimage
+import numpy as np
 
 
+# Image filtering using the Python imaging library
 im0 = Image.open(r'C:\Users\Patxi\Downloads\images\images\moon.jpg').convert('L')
 figure(figsize=(15,15))
 subplot(3,4,1)
@@ -62,6 +64,28 @@ plt.title('Custom Filter 2')
 
 plt.show()
 
+# Mean Filter (smooth)
+img = Image.open(r'C:\Users\Patxi\Downloads\images\images\profile.jpg')
+img_gray = img.convert('L')  # Convert image to grayscale
+k = np.ones((5,5))/25 # Kernel
+b = scipy.ndimage.filters.convolve(img_gray,k)
+b = Image.fromarray(b)
+b.save(r'C:\Users\Patxi\Downloads\images\images\mean_profile.jpg')
 
+# Minimum Filter (smooth)
+img = Image.open(r'C:\Users\Patxi\Downloads\images\images\lena_noisy.png')
+b = scipy.ndimage.filters.minimum_filter(img, size=5, footprint=None, output=None, mode='reflect', cval=0.0, origin=0)
+b = Image.fromarray(b)
+b.show()
 
+# Maximum Filter
+img = Image.open(r'C:\Users\Patxi\Downloads\images\images\lena_noisy.png')
+b = scipy.ndimage.filters.maximum_filter(img, size=5, footprint=None, output=None, mode='reflect', cval=0.0, origin=0)
+b = Image.fromarray(b)
+b.show()
 
+# Median Filter (noise reduction)
+img = Image.open(r'C:\Users\Patxi\Downloads\images\images\lena_noisy.png')
+b = scipy.ndimage.filters.median_filter(img, size=5, footprint=None, output=None, mode='reflect', cval=0.0, origin=0)
+b = Image.fromarray(b)
+b.show()
