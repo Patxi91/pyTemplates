@@ -47,7 +47,7 @@ plt.imshow(im10)
 plt.title('Sharpen')
 # Custom kernels
 size = (3,3)
-kernel1 = [1,1,1,0,0,0,-1,-1,-1]
+kernel1 = [1,1,1,1,-1,1,-1,-1,-1]
 ker1 = ImageFilter.Kernel(size,kernel1,scale=None,offset=0)
 subplot(3,4,11)
 im11 = im0.filter(ker1)
