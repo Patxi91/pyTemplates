@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 from pylab import *
+from skimage import data
 
 # Low Level: Primitive operations where Input and Output are Images, i.e.: noise reduction, contrast enhancement
 # Sharpening
@@ -13,9 +14,13 @@ from pylab import *
 # Mid Level: Extraction of attributes from Images, i.e.: edges, contours or regions extractions
 # Edge detection
 # Binary Thresholding
-from skimage import data
 scanned = data.page()
-plt.imshow(scanned)
+#plt.imshow(scanned, cmap = cm.gray)
+thres = np.zeros(shape(scanned)).astype('uint8')
+threshold = 150
+thres[scanned < threshold] = 0
+thres[scanned >= threshold] = 255
+plt.imshow(thres, cmap = cm.gray)
 plt.show()
 # Contrast enhancement
 
