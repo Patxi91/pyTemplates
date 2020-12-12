@@ -61,7 +61,6 @@ subplot(3,4,12)
 im12 = im0.filter(ker2)
 plt.imshow(im12)
 plt.title('Custom Filter 2')
-
 plt.show()
 
 # Mean Filter (smooth)
