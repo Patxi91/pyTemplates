@@ -52,8 +52,8 @@ im3 = np.reshape(im2,img1.shape)
 im4 = Image.fromarray(im3)
 im4.show()  # Equalized
 
-    # Image Enhancement, Filter Kernel, Gamma correction
-a = img
+    # Image Enhancement Gamma correction: Makes Image brighter
+a = img1
 b = np.asarray(a)
 gamma = 0.5
 b1 = b.astype(float)
@@ -64,6 +64,9 @@ c = np.exp(b3)*255.0
 c1 = c.astype(int)
 d = Image.fromarray(c1)
 d.show()
+
+    # Image Enhancement Gray-level transforation
+
 
 
 
