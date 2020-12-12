@@ -32,13 +32,13 @@ plt.show()
     # Histogram: Relative frequency of occurrence of pixels against the values themselves, discrete probability function.
         # Equalization causes histogram to spread out. Usually increases the contrast
 img = Image.open(r'C:\Users\Patxi\Downloads\images\images\profile.jpg')
-new_img = img.convert('L')  # Convert image to grayscale
-new_img.show()
-img_array = array(new_img)
+img_gray = img.convert('L')  # Convert image to grayscale
+img_gray.show()
+img_array = array(img_gray)
 figure()
 hist(img_array.flatten(), 300)
 show()  # Histogram
-img1 = np.asarray(new_img)
+img1 = np.asarray(img_gray)
 img_fl = img1.flatten()
 hist, bins = np.histogram(img1, 256, [0, 255])
 cdf = hist.cumsum()  # Cumulated distribution function
@@ -66,6 +66,11 @@ d = Image.fromarray(c1)
 d.show()
 
     # Image Enhancement Gray-level transforation
+im2 = 255 - img_array  # negative image
+im3 = (100.0/255)*img_array + 100  # Clamp to interval 100 ... 200
+im4 = 255.0*(img_array/255.0)**2
+imshow(im2)
+show()
 
 
 
