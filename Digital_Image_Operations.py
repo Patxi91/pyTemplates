@@ -1,3 +1,7 @@
+# Low Level: Primitive operations where Input and Output are Images, i.e.: noise reduction, contrast enhancement
+# Mid Level: Extraction of attributes from Images, i.e.: edges, contours or regions extractions
+# High Level: Analysis or interpretation of content of an Image, i.e.: segmentation/labeling
+
 from PIL import Image
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,32 +9,19 @@ from matplotlib import cm
 from pylab import *
 from skimage import data
 
-# Low Level: Primitive operations where Input and Output are Images, i.e.: noise reduction, contrast enhancement
-    # Sharpening
-    # Noise removal
-    # De-blurring
-    # Blurring
-    # Neighborhood processing
 
-# Mid Level: Extraction of attributes from Images, i.e.: edges, contours or regions extractions
-    # Edge detection
-
-    # Binary Thresholding
+# Binary Thresholding
 scanned = data.page()
 #plt.imshow(scanned, cmap = cm.gray)
 thres = np.zeros(shape(scanned)).astype('uint8')
 threshold = 150
 thres[scanned < threshold] = 0
 thres[scanned >= threshold] = 255
-plt.imshow(thres, cmap = cm.gray)
+plt.imshow(thres, cmap=cm.gray)
 plt.show()
 
-
-# High Level: Analysis or interpretation of content of an Image
-    # Segmentation / labeling
-
-    # Histogram: Relative frequency of occurrence of pixels against the values themselves, discrete probability function.
-        # Equalization causes histogram to spread out. Usually increases the contrast
+# Histogram: Relative frequency of occurrence of pixels against the values themselves, discrete probability function.
+# Equalization causes histogram to spread out. Usually increases the contrast
 img = Image.open(r'C:\Users\Patxi\Downloads\images\images\profile.jpg')
 img_gray = img.convert('L')  # Convert image to grayscale
 img_gray.show()
@@ -52,7 +43,7 @@ im3 = np.reshape(im2,img1.shape)
 im4 = Image.fromarray(im3)
 im4.show()  # Equalized
 
-    # Image Enhancement Gamma correction: Makes Image brighter
+# Image Enhancement Gamma correction: Makes Image brighter
 a = img1
 b = np.asarray(a)
 gamma = 0.5
@@ -65,14 +56,9 @@ c1 = c.astype(int)
 d = Image.fromarray(c1)
 d.show()
 
-    # Image Enhancement Gray-level transforation
+# Image Enhancement Gray-level transformation
 im2 = 255 - img_array  # negative image
 im3 = (100.0/255)*img_array + 100  # Clamp to interval 100 ... 200
 im4 = 255.0*(img_array/255.0)**2
 imshow(im2)
 show()
-
-
-
-
-
