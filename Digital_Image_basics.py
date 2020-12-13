@@ -1,5 +1,7 @@
-# Pillow python Imaging Library adds image processing capabilities to your Python interpreter.
-from PIL import Image
+from PIL import Image  # Pillow python Imaging Library adds image processing capabilities to your Python interpreter.
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib import cm
 
 img = Image.open(r'C:\Users\Patxi\Downloads\images\images\profile.jpg')
 img.show()
@@ -38,3 +40,12 @@ imshow(im)
 pt = ginput(4)
 print('You selected: ', pt)
 show()
+
+
+# Create an Image
+x = np.random.randint(0,255,(300,300)).astype('uint8')
+plt.imshow(x,cmap=cm.gray)
+plt.show()
+y = np.random.randint(0,255,(300,400,3)).astype('uint8')
+plt.imshow(x)
+plt.show()
