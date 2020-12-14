@@ -5,6 +5,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from PIL import Image
 
+
 # Vertical Edges with Prewitt Mask
 moon = cv2.imread(r'C:\Users\Patxi\Downloads\images\images\moon.jpg',0)
 prewitt_vertical = np.array([[-1, 0, 1],[-1, 0, 1],[-1, 0, 1]], dtype='float64')  # Kernel
