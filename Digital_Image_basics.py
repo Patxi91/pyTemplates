@@ -11,6 +11,7 @@ new_img.show()
 
 
 # Analyze Image with numpy and matplotlib
+
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
