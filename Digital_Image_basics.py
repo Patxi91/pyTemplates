@@ -11,7 +11,6 @@ new_img.show()
 
 
 # Analyze Image with numpy and matplotlib
-
 import numpy as np
 import matplotlib.pyplot as plt
 from pylab import *
@@ -50,3 +49,4 @@ plt.show()
 y = np.random.randint(0,255,(300,400,3)).astype('uint8')
 plt.imshow(x)
 plt.show()
+
