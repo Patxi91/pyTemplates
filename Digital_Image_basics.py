@@ -3,9 +3,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import cm
 
+
 img = Image.open(r'C:\Users\Patxi\Downloads\images\images\profile.jpg')
 img.show()
-
 new_img = img.convert('L')  # Convert image to grayscale
 new_img.show()
 
