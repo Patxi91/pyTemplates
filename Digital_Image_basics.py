@@ -49,3 +49,4 @@ plt.show()
 y = np.random.randint(0,255,(300,400,3)).astype('uint8')
 plt.imshow(x)
 plt.show()
+
