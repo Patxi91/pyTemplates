@@ -1,4 +1,4 @@
-# Big-O:
+# Big-O: https://www.bigocheatsheet.com/
 # https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation/487278#487278
 # https://stackoverflow.com/questions/487258/what-is-a-plain-english-explanation-of-big-o-notation/487278#487278
 
@@ -69,13 +69,13 @@ printer(10)
 # Big O for Python Data Structures
 def method1():
     l = []
-    for n in xrange(10000):
+    for n in range(10000):
         l = l + [n]
 def method2():
     l = []
-    for n in xrange(10000):
+    for n in range(10000):
         l.append(n)
 def method3():
-    l = [n for n in xrange(10000)]
+    l = [n for n in range(10000)]
 def method4():
-    l = range(10000) # Python 3: list(range(10000))
+    l = list(range(10000))
