@@ -15,5 +15,8 @@ for i in range(n):
     print(f'Length: {a}, Size: {b}')
     data.append(n)  # Increase Size by one
 
+# Dynamic array implementation
+
+
 
 
