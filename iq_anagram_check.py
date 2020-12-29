@@ -17,11 +17,7 @@ Note: Ignore spaces and capitalization. So "d go" is an anagram of "God" and "do
 def anagram(s1, s2):
     s1_aux = s1.replace(" ", "").lower()
     s2_aux = s2.replace(" ", "").lower()
-    if sorted(s1_aux) == sorted(s2_aux):
-        sol = True
-    else:
-        sol = False
-    return sol
+    return sorted(s1_aux) == sorted(s2_aux)
 
 
 class AnagramTest(object):
