@@ -41,7 +41,7 @@ class DynamicArray(object):
         Add element to end of the array
         """
         if self.n == self.capacity:
-            self._resize(2*self.capacity)  # 2x if capacity isn't enough
+            self._resize(2*self.capacity)  # 2x if capacity isn't enough (Amortization)
         self.A[self.n] = ele
         self.n += 1
 
@@ -65,12 +65,6 @@ arr = DynamicArray()
 n = 10
 for i in range(n):
     a = len(arr)  # Number of Data
-    b = sys.getsizeof(arr.A)  # Actual Size in Bytes
+    b = ctypes.sizeof(arr.A)  # sys.getsizeof(arr.A) just returns the garbage collector overhead
     print(f'Dynamic array Length: {a}, Size: {b}')
     arr.append(n)
-
-
-
-
-
-
