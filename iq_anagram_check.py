@@ -19,6 +19,28 @@ def anagram(s1, s2):
     s2_aux = s2.replace(" ", "").lower()
     return sorted(s1_aux) == sorted(s2_aux)
 
+def anagram2(s1, s2):
+    s1_aux = s1.replace(" ", "").lower()
+    s2_aux = s2.replace(" ", "").lower()
+    # Edge Case Check
+    if len(s1_aux) != len(s2_aux):
+        return False
+    count = {}
+    for letter in s1_aux:
+        if letter in count:
+            count[letter] += 1
+        else:
+            count[letter] = 1
+    for letter in s2_aux:
+        if letter in count:
+            count[letter] -= 1
+        else:
+            count[letter] = 1
+    for letter in count:
+        if count[letter] != 0:
+            return False
+    return True
+
 
 class AnagramTest(object):
 
@@ -33,4 +55,4 @@ class AnagramTest(object):
 
 # Run Tests
 t = AnagramTest()
-t.test(anagram)
+t.test(anagram2)
