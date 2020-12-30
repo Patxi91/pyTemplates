@@ -30,5 +30,3 @@ class TestPair:
 
 t = TestPair()
 t.test(large_cont_sum)
-
-
