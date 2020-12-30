@@ -57,8 +57,7 @@ def finder3(arr1, arr2):
     return result
 
 
-
-class TestPair(object):
+class TestPair:
 
     def test(self, sol):
         assert_equal(sol([1,2,3,4,5,6,7],[3,7,2,1,4,6]), 5)

@@ -42,7 +42,7 @@ def anagram2(s1, s2):
     return True
 
 
-class AnagramTest(object):
+class AnagramTest:
 
     def test(self, sol):
         assert_equal(sol('go go go', 'gggooo'), True)

@@ -33,7 +33,7 @@ def pair_sum(arr, k):
     return(len(output))
 
 
-class TestPair(object):
+class TestPair:
 
     def test(self, sol):
         assert_equal(sol([1, 9, 2, 8, 3, 7, 4, 6, 5, 5, 13, 14, 11, 13, -1], 10), 6)
