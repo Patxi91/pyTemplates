@@ -41,7 +41,6 @@ class Test:
         print('ALL TEST CASES PASSED')
 
 
-
 # Run Tests
 q = Queue2Stacks()
 t = Test()
