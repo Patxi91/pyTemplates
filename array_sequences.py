@@ -22,6 +22,7 @@ for i in range(n):
     DYNAMIC ARRAY CLASS (Similar to Python List)
     '''
 
+
 class DynamicArray(object):
     def __init__(self):
         self.n = 0
@@ -60,6 +61,7 @@ class DynamicArray(object):
         Returns a new array with new_cap capacity
         """
         return (new_cap * ctypes.py_object)()
+
 
 arr = DynamicArray()
 n = 10
