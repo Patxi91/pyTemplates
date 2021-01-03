@@ -1,6 +1,5 @@
 from nose.tools import assert_equals, assert_equal
 
-# Interview question
 '''
 Anagram Check:
 Given two strings, check to see if they are anagrams. An anagram is when the two strings can be written using the exact

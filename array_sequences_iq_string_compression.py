@@ -1,6 +1,5 @@
 from nose.tools import assert_equal
 
-# Interview question
 '''
 String Compression:
 Given a string in the form 'AAAABBBBCCCCCDDEEEE' compress it to become 'A4B4C5D2E4'.

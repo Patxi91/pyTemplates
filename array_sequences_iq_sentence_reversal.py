@@ -1,6 +1,5 @@
 from nose.tools import assert_equal
 
-# Interview question
 '''
 Sentence Reversal:
 Given a string of words, reverse all the words.

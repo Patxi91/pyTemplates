@@ -1,7 +1,6 @@
 from nose.tools import assert_equal
 import collections
 
-# Interview question
 '''
 Find the Missing Element:
 Consider an array of non-negative integers.

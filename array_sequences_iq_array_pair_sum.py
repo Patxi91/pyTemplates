@@ -1,6 +1,5 @@
 from nose.tools import assert_equal
 
-# Interview question
 '''
 Array Pair Sum:
 Given an integer array, output all the unique pairs that sum up to a specific value k.
