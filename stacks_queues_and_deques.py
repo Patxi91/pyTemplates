@@ -1,3 +1,13 @@
+'''
+Implement a Stack:
+
+It should have the methods:
+Check if its empty
+Push a new item
+Pop an item
+Peek at the top item
+Return the size
+'''
 
 
 # Implementation of a Stack (1 end: top)
@@ -20,6 +30,7 @@ class Stack:
     def size(self):
         return len(self.items)
 
+
 print('Stack')
 s = Stack()
 print(s.isEmpty())  # True
@@ -33,6 +44,17 @@ print(s.pop())  # True
 print(s.pop())  # 'Two'
 print(s.pop())  # 1
 print(s.isEmpty())  # True
+
+
+'''
+Implement a Queue:
+
+It should have the methods:
+Check if Queue is Empty
+Enqueue
+Dequeue
+Return the size of the Queue
+'''
 
 
 # Implementation of a Queue (2 ends: rear, front)
@@ -59,6 +81,17 @@ print(q.isEmpty())  # True
 q.enqueue(1)
 q.enqueue(2)
 print(q.dequeue())  # 1 (1st in 1st out)
+
+
+'''
+Implement a Deque:
+
+It should have the methods:
+Check if its empty
+Add to both front and rear
+Remove from Front and Rear
+Check the Size
+'''
 
 
 # Implementation of a Deque (aka. double-ended queue w/ 2 ends: rear, front)
