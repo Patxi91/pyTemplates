@@ -70,4 +70,3 @@ t = TestFib()
 t.test(fib_rec)
 # t.test(fib_dyn) # Note, will need to reset cache size for each test!
 t.test(fib_iter)
-
