@@ -29,9 +29,6 @@ def reverse3(s):
         return reverse3(s[1:]) + s[0]
 
 
-
-
-
 class TestReverse(object):
 
     def test_rev(self, solution):
