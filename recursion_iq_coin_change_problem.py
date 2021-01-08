@@ -53,7 +53,7 @@ def rec_coin_dynam(target,coins,known_results):
         # for every coin value that is <= than target
         for i in [c for c in coins if c <= target]:
 
-            # Recursive call, note how we include the known results!
+            # Recursive call
             num_coins = 1 + rec_coin_dynam(target-i,coins,known_results)
 
             # Reset Minimum if we have a new minimum

@@ -56,6 +56,13 @@ print(l)  # [9, [4, [], []], []]
 print(r)  # [3, [9, [4, [], []], []], [7, [], [6, [], []]]]
 
 
+# Nodes and References Implementation OOP
+class BinaryTree:
+
+    def __init__(self, rootObj):
+        self.key = rootObj
+        self.leftChild = None
+        self.rightChild = None
 
 
 
