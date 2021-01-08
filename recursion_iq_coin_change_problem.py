@@ -34,8 +34,8 @@ def rec_coin(target, coins):
     return min_coins
 
 
-# Dynamic - fast
-def rec_coin_dynam(target,coins,known_results):
+# Recursive caching - fast
+def rec_coin_cache(target, coins, known_results):
 
     # Default output to target
     min_coins = target
@@ -46,7 +46,7 @@ def rec_coin_dynam(target,coins,known_results):
         return 1
 
     # Return a known result if it happens to be greater than 1
-    elif known_results[target] > 0:
+    elif target in known_results:
         return known_results[target]
 
     else:
@@ -54,7 +54,7 @@ def rec_coin_dynam(target,coins,known_results):
         for i in [c for c in coins if c <= target]:
 
             # Recursive call
-            num_coins = 1 + rec_coin_dynam(target-i,coins,known_results)
+            num_coins = 1 + rec_coin_cache(target-i, coins, known_results)
 
             # Reset Minimum if we have a new minimum
             if num_coins < min_coins:
@@ -66,6 +66,18 @@ def rec_coin_dynam(target,coins,known_results):
     return min_coins
 
 
+# Dynamically
+def rec_coin_dyn(change, coinValueList, minCoins):
+
+    for cents in range(change+1):
+        coinCount = cents
+        for j in [c for c in coinValueList if c <= cents]:
+            if minCoins[cents-j] + 1 < coinCount:
+                coinCount = minCoins[cents-j]+1
+        minCoins[cents] = coinCount
+
+    return minCoins[change]
+
 
 class TestCoins(object):
 
@@ -76,15 +88,13 @@ class TestCoins(object):
             assert_equal(solution(23,coins),5)
             assert_equal(solution(74,coins),8)
             print('PASSED ALL TEST CASES!')
-        elif solution == rec_coin_dynam:
+        elif solution == rec_coin_cache or solution == rec_coin_dyn:
+            known_results = {}
             target = 45
-            known_results = [0]*(target+1)
             assert_equal(solution(target,coins,known_results),3)
             target = 23
-            known_results = [0]*(target+1)
             assert_equal(solution(target,coins,known_results),5)
             target = 74
-            known_results = [0]*(target+1)
             assert_equal(solution(target,coins,known_results),8)
             print('PASSED ALL TEST CASES!')
 
@@ -92,4 +102,5 @@ class TestCoins(object):
 # Run Test
 
 test = TestCoins()
-test.check(rec_coin_dynam)
+test.check(rec_coin_cache)
+test.check(rec_coin_dyn)
