@@ -66,7 +66,7 @@ def rec_coin_cache(target, coins, known_results):
     return min_coins
 
 
-# Dynamically
+# Dynamically - faster
 def rec_coin_dyn(change, coinValueList, minCoins):
 
     for cents in range(change+1):
