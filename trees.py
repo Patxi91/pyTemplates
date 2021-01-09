@@ -102,6 +102,35 @@ r.insertLeft('b')
 print(r.getLeftChild().getRootVal())  # 'b'
 
 
+# Tree Traversals: Preorder, inorder, postorder.
+
+# Preorder: Root node -> recursive left preorder -> recursive right preorder
+def preorder(tree):
+    if tree:
+        print(tree.getRootVal())
+        preorder(tree.getLeftChild())
+        preorder(tree.getRightChild())
+
+
+# Postorder: Recursive left postorder -> recursive right postorder -> root node
+def postorder(tree):
+    if tree != None:
+        postorder(tree.getLeftChild())
+        postorder(tree.getRightChild())
+        print(tree.getRootVal())
+
+
+# Inorder: Recursive left inorder -> root node -> Recursive right inorder
+def inorder(tree):
+    if tree != None:
+        inorder(tree.getLeftChild())
+        print(tree.getRootVal())
+        inorder(tree.getRightChild())
+
+
+# Priority Queues with Binary Heaps
+
+
 
 
 
