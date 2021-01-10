@@ -133,6 +133,7 @@ def inorder(tree):
 class BinHeap:
 
     def __init__(self):
+        # Creates a new, empty, binary heap
         self.heapList = [0]
         self.currentSize = 0
 
@@ -147,6 +148,7 @@ class BinHeap:
             i = i // 2
 
     def insert(self, k):
+        # Adds a new item to the heap (and percUp in a min heap case)
         self.heapList.append(k)
         self.currentSize = self.currentSize + 1
         self.percUp(self.currentSize)
@@ -163,7 +165,7 @@ class BinHeap:
             i = mc
 
     def minChild(self, i):
-
+        # Returns the item with the minimum key value, leaving item in the heap
         if i * 2 + 1 > self.currentSize:
             return i * 2
         else:
@@ -174,6 +176,7 @@ class BinHeap:
                 return i * 2 + 1
 
     def delMin(self):
+        # Returns the item with the minimum key value, removing the item from the heap
         retval = self.heapList[1]
         self.heapList[1] = self.heapList[self.currentSize]
         self.currentSize = self.currentSize - 1
@@ -182,13 +185,19 @@ class BinHeap:
         return retval
 
     def buildHeap(self, alist):
+        # Builds a new heap from a list of keys
         i = len(alist) // 2
         self.currentSize = len(alist)
         self.heapList = [0] + alist[:]
         while i > 0:
             self.percDown(i)
             i = i - 1
-    pass
+
+
+b = BinHeap()
+alist = [10, 6, 5, 2, 4]
+b.buildHeap(alist)
+print(f'Original list is:{alist}, and its min BinHeap is:{b.heapList}')  # [0, 2, 4, 5, 6, 10]
 
 
 # Binary Search Trees - BST
