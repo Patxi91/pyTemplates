@@ -81,21 +81,21 @@ def rec_coin_dyn(change, coinValueList, minCoins):
 
 class TestCoins(object):
 
-    def check(self,solution):
-        coins = [1,5,10,25]
+    def check(self, solution):
+        coins = [1, 5, 10, 25]
         if solution == rec_coin:
-            assert_equal(solution(45,coins),3)
-            assert_equal(solution(23,coins),5)
-            assert_equal(solution(74,coins),8)
+            assert_equal(solution(45, coins), 3)
+            assert_equal(solution(23, coins), 5)
+            assert_equal(solution(74, coins), 8)
             print('PASSED ALL TEST CASES!')
         elif solution == rec_coin_cache or solution == rec_coin_dyn:
             known_results = {}
             target = 45
-            assert_equal(solution(target,coins,known_results),3)
+            assert_equal(solution(target, coins, known_results), 3)
             target = 23
-            assert_equal(solution(target,coins,known_results),5)
+            assert_equal(solution(target, coins, known_results), 5)
             target = 74
-            assert_equal(solution(target,coins,known_results),8)
+            assert_equal(solution(target, coins, known_results), 8)
             print('PASSED ALL TEST CASES!')
 
 
