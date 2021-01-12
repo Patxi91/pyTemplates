@@ -18,6 +18,7 @@ class Node:
 
 
 # Keep track of min and max values a Node can take as we go through the Tree.
+
 def tree_max(node):
     if not node:
         return float("-inf")
@@ -45,6 +46,7 @@ def verify(node):
 
 
 # In a BST, traversing the Tree in order should lead to a sorted order of Nodes
+
 def inorder(tree, tree_vals=None):
     if tree != None:
         inorder(tree.left, tree_vals)
