@@ -19,7 +19,7 @@ def inorder(tree):
         inorder(tree.right)
 
 
-# post-traversal of the tree
+# post-traversal of the tree: O(n)
 def trimBST(tree, minVal, maxVal):
     if not tree:
         return
