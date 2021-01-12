@@ -17,6 +17,7 @@ class Node:
         self.parent = parent
 
 
+# Keep track of min and max values a Node can take as we go through the Tree.
 def tree_max(node):
     if not node:
         return float("-inf")
