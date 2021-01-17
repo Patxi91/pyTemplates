@@ -137,14 +137,7 @@ h = HashTable(5)
 h[1] = 'one'
 h[2] = 'two'
 h[3] = 'three'
-
-
-
-
-
-
-
-
+print(h[1], h[2], h[3])  # one two three
 
 
 
