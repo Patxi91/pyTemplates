@@ -104,16 +104,39 @@ class HashTable:
                 else:
                     self.data[nextslot] = data
 
-    # Linear Probing
     def hashfunction(self, key, size):
         return key % size
 
+    # Linear Probing
     def rehash(self, oldhash, size):
         return (oldhash + 1) % size
 
+    def get(self, key):
+        startslot = self.hashfunction(key, len(self.slots))
+        data = None
+        stop = False
+        position = startslot
+        while self.slots[startslot] != None and not stop:
+            if self.slots[position] == key:
+                stop = True
+                data = self.data[position]
+            else:
+                position = self.rehash(position, len(self.slots))
+                if position == startslot:
+                    stop = True
+        return data
+
+    def __getitem__(self, key):
+        return self.get(key)
+
+    def __setitem__(self, key, data):
+        self.put(key, data)
 
 
-
+h = HashTable(5)
+h[1] = 'one'
+h[2] = 'two'
+h[3] = 'three'
 
 
 
