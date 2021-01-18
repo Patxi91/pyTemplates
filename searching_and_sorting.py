@@ -79,7 +79,7 @@ arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 print(rec_bin_search(arr, 7))  # True
 
 
-# Hashing for ordered search O(1)
+# Hashing for Ordered Search O(1)
 class HashTable:
     def __init__(self, size):
         self.size = size
@@ -139,6 +139,16 @@ h[2] = 'two'
 h[3] = 'three'
 print(h[1], h[2], h[3])  # one two three
 
+
+# Sorting Data Structures
+
+
+# Bubble Sort
+# Selection Sort
+# Insertion Sort
+# Shell Sort
+# Merge Sort
+# Quick Sort
 
 
 
