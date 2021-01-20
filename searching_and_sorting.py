@@ -156,6 +156,15 @@ print(h[1], h[2], h[3])  # one two three
 
 
 
+class HashTable:
+
+    def __init__(self, size):
+        self.size = size
+        self.slots = [None] * self.size
+        self.data = [None] * self.size
+
+    def put(self, key, data):
+        pass
 
 
 
