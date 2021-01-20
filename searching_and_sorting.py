@@ -141,10 +141,27 @@ print(h[1], h[2], h[3])  # one two three
 
 
 # Sorting Data Structures
+# https://www.toptal.com/developers/sorting-algorithms
+# https://visualgo.net/en/sorting?slide=1
 
 
-# Bubble Sort
-# Selection Sort
+# Bubble Sort: O(n2): Each pass through the list places the next largest value in its proper place.
+def bubble_sort(arr):
+    for n in range(len(arr)-1, 0, -1):
+        for k in range(n):
+            if arr[k] > arr[k+1]:
+                temp = arr[k]
+                arr[k] = arr[k+1]
+                arr[k+1] = temp
+
+arr = [5, 3, 7, 2]
+bubble_sort(arr)
+print(arr)  # [2, 3, 5, 7]
+
+# Selection Sort: O(n2): Improves the bubble sort by making only 1 exchange(largest value) every pass.
+
+
+
 # Insertion Sort
 # Shell Sort
 # Merge Sort
