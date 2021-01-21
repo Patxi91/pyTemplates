@@ -177,13 +177,11 @@ selection_sort(arr)
 print(arr)  # [1, 3, 5, 8, 10]
 
 
+# Insertion Sort: O(n2): Maintains a sorted sublist and each time grows as the new item is inserted.
 
 
 
 
-
-
-# Insertion Sort
 # Shell Sort
 # Merge Sort
 # Quick Sort
