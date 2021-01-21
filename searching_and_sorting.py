@@ -154,11 +154,32 @@ def bubble_sort(arr):
                 arr[k] = arr[k+1]
                 arr[k+1] = temp
 
+
 arr = [5, 3, 7, 2]
 bubble_sort(arr)
 print(arr)  # [2, 3, 5, 7]
 
+
 # Selection Sort: O(n2): Improves the bubble sort by making only 1 exchange(largest value) every pass.
+def selection_sort(arr):
+    for fillslot in range(len(arr)-1, 0, -1):
+        positionofmax = 0
+        for location in range(1, fillslot+1):  # start in 1 since positionofmax = 0
+            if arr[location] > arr[positionofmax]:
+                positionofmax = location
+        temp = arr[fillslot]
+        arr[fillslot] = arr[positionofmax]
+        arr[positionofmax] = temp
+
+
+arr = [5, 8, 3, 10, 1]
+selection_sort(arr)
+print(arr)  # [1, 3, 5, 8, 10]
+
+
+
+
+
 
 
 
