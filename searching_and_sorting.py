@@ -180,8 +180,8 @@ print(arr)  # [1, 3, 5, 8, 10]
 # Insertion Sort: O(n2): Maintains a sorted sublist and each time grows as the new item is inserted.
 def insertion_sort(arr):
     for i in range(1, len(arr)):
-        currentvalue = arr[i]
         position = i
+        currentvalue = arr[position]
         while position > 0 and arr[position-1] > currentvalue:
             arr[position] = arr[position - 1]
             position = position - 1
@@ -193,8 +193,34 @@ insertion_sort(arr)
 print(arr)  # [1, 2, 2, 4, 4, 6, 7, 9, 11, 13, 23]
 
 
+# Shell Sort: O(n2): Improves insertion sort by breaking the list into n increments and applying insertion to each.
+def shell_sort(arr):
 
-# Shell Sort
+    sublistcount = len(arr)//2
+
+    while sublistcount > 0:
+        for start in range(sublistcount):
+            gap_insertion_sort(arr, start, sublistcount)
+        sublistcount = sublistcount // 2
+
+
+def gap_insertion_sort(arr, start, gap):
+
+    for i in range(start+gap, len(arr), gap):
+
+        position = i
+        currentvalue = arr[position]
+
+        while position >= gap and arr[position-gap] > currentvalue:
+            arr[position] = arr[position-gap]
+            position = position-gap
+        arr[position] = currentvalue
+
+arr = [4, 6, 2, 7, 4, 1, 9, 11, 23, 13, 2]
+shell_sort(arr)
+print(arr)  # [1, 2, 2, 4, 4, 6, 7, 9, 11, 13, 23]
+
+
 # Merge Sort
 # Quick Sort
 
