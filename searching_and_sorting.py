@@ -241,8 +241,9 @@ def merge_sort(arr):
 
         i = 0  # left
         j = 0  # right
-        k = 0
+        k = 0  # Merge
 
+        # Merging
         while i < len(lefthalf) and j < len(righthalf):
             if lefthalf[i] < righthalf[j]:
                 arr[k] = lefthalf[i]
