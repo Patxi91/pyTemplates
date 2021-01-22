@@ -198,9 +198,12 @@ def shell_sort(arr):
 
     sublistcount = len(arr)//2
 
+    # While there are still sublists
     while sublistcount > 0:
         for start in range(sublistcount):
+            # Use a gap insertion
             gap_insertion_sort(arr, start, sublistcount)
+
         sublistcount = sublistcount // 2
 
 
@@ -211,17 +214,60 @@ def gap_insertion_sort(arr, start, gap):
         position = i
         currentvalue = arr[position]
 
+        # Using the Gap
         while position >= gap and arr[position-gap] > currentvalue:
             arr[position] = arr[position-gap]
             position = position-gap
+
+        # Set current value
         arr[position] = currentvalue
+
 
 arr = [4, 6, 2, 7, 4, 1, 9, 11, 23, 13, 2]
 shell_sort(arr)
 print(arr)  # [1, 2, 2, 4, 4, 6, 7, 9, 11, 13, 23]
 
 
-# Merge Sort
+# Merge Sort: O(n log(n)): Recursively splits a list in half, invokes a merge sort in both halves and merges them.
+def merge_sort(arr):
+
+    if len(arr) > 1:
+        mid = len(arr) // 2
+        lefthalf = arr[:mid]
+        righthalf = arr[mid:]
+
+        merge_sort(lefthalf)
+        merge_sort(righthalf)
+
+        i = 0  # left
+        j = 0  # right
+        k = 0
+
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                arr[k] = lefthalf[i]
+                i += 1
+            else:
+                arr[k] = righthalf[j]
+                j += 1
+            k += 1
+
+        while i < len(lefthalf):
+            arr[k] = lefthalf[i]
+            i += 1
+            k += 1
+
+        while j < len(righthalf):
+            arr[k] = righthalf[j]
+            j += 1
+            k += 1
+
+
+arr = [11, 2, 5, 4, 7, 56, 2, 12, 23]
+merge_sort(arr)
+print(arr)  # [2, 2, 4, 5, 7, 11, 12, 23, 56]
+
+
 # Quick Sort
 
 
