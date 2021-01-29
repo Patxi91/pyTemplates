@@ -269,8 +269,8 @@ merge_sort(arr)
 print(arr)  # [2, 2, 4, 5, 7, 11, 12, 23, 56]
 
 
-
-# Quick Sort
+# Quick Sort: O(n): Chosen Pivot value(PV, 1st element) will find the split point.
+# Concurrently will move other itmes greater or less than the pivot value. Leftmark > PV and Rightmark < PV will switch.
 
 
 
