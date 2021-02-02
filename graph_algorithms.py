@@ -21,6 +21,18 @@ class Vertex:
         return str(self.id) + ' connected to: ' + str([x.id for x in self.connectedTo])
 
 
+class Graph:
+
+    def __init__(self):
+        self.vertList = {}
+        self.numVertices = 0
+
+    def add_vertex(self, key):
+        self.numVertices += 1
+        newVertex = Vertex(key)
+        self.vertList[key] = newVertex
+
+
 
 
 
