@@ -69,3 +69,4 @@ g.add_edge(0, 1, 2)
 for vertex in g:  # Uses special method __iter__(self)
     print(vertex)  # 0 connected to: [1]
     print(vertex.get_connections())  # dict_keys([<__main__.Vertex object at 0x036CD328>])
+
