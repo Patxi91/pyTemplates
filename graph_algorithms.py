@@ -33,13 +33,13 @@ class Graph:
         self.vertList[key] = newVertex
         return newVertex
 
-    def get_vertex(self, n):
-        if n in self.vertList:
-            return self.vertList[n]
+    def get_vertex(self, key):
+        if key in self.vertList:
+            return self.vertList[key]
         else:
             return None
 
-    def add_edge(self, fv, tv, weight=0):
+    def add_edge(self, fv, tv, weight=0):  # from vertex, to vertex
         if fv not in self.vertList:
             nv = self.add_vertex(fv)
         if tv not in self.vertList:
@@ -49,10 +49,10 @@ class Graph:
     def get_vertices(self):
         return self.vertList.keys()
 
-    def __iter__(self):
-        return iter(self.vertList.values())
+    def __iter__(self):  # for operator
+        return iter(self.vertList.values())  # Iterable with values --> for loop will go through values in dictionary
 
-    def __contains__(self, item):
+    def __contains__(self, item):  # in operator
         return item in self.vertList
 
 
