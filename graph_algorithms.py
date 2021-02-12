@@ -41,9 +41,9 @@ class Graph:
 
     def add_edge(self, fv, tv, weight=0):  # from vertex, to vertex
         if fv not in self.vertList:
-            nv = self.add_vertex(fv)
+            self.add_vertex(fv)
         if tv not in self.vertList:
-            nv = self.add_vertex(tv)
+            self.add_vertex(tv)
         self.vertList[fv].add_neighbor(self.vertList[tv], weight)  # calls Vertex().add_neighbor
 
     def get_vertices(self):
