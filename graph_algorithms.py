@@ -9,7 +9,7 @@ class Vertex:
         self.connectedTo[nbr] = weight
 
     def get_connections(self):
-        return self.connectedTo.keys()
+        return self.connectedTo.keys()  # see add_edge->add_neighbor, or else return [x.id for x in self.connectedTo]
 
     def get_id(self):
         return self.id
@@ -39,7 +39,7 @@ class Graph:
         else:
             return None
 
-    def add_edge(self, fv, tv, weight=0):  # from vertex, to vertex
+    def add_edge(self, fv, tv, weight=0):  # from vertex --> to vertex
         if fv not in self.vertList:
             self.add_vertex(fv)
         if tv not in self.vertList:
