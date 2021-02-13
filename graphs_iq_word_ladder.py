@@ -1,6 +1,7 @@
 from graphs_algorithms import Vertex
 from graphs_algorithms import Graph
 
+
 '''
 Word Ladder Puzzle:
 Transform word "FOOL" into word "SAGE". You can change one letter at a time transforming one word into another.
