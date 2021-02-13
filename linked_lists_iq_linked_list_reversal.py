@@ -31,7 +31,7 @@ def reverse(head):
         # Before overwriting as the previous node for reversal
         nextnode = current.nextnode
 
-        # Reverse the pointer ot the next_node
+        # Reverse the pointer at the next_node
         current.nextnode = previous
 
         # Go one forward in the list
