@@ -36,8 +36,8 @@ def bfs(g, start):
         currentVert = vertQueue.dequeue()  # Explore each vertex at the front of queue
         for nbr in currentVert.getConnections():  # Iterate over its adjacency list
             if nbr.getColor() == 'white':  # nbr --> new unexplored vertex that will be colored
-                nbr.setColor('gray')  # Neighbor initially explored
+                nbr.setColor('gray')  # Neighbor (nbr) initially explored
                 nbr.setDistance(currentVert.getDistance() + 1)
                 nbr.setPred(currentVert)
-                vertQueue.enqueue(nbr)  # Add neighbour to the end of the Queue --> self.items.insert(0, item)
+                vertQueue.enqueue(nbr)  # Add nbr to end of queue for later exploration --> self.items.insert(0, item)
         currentVert.setColor('black')  # Completely explored --> No white vertices adjacent to it
