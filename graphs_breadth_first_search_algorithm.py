@@ -15,7 +15,7 @@ Applications:
 
 Note: BFS is like building a tree one level at a time. The parents pointers give the shortest path.
 
-Keep track of progress: BFS colors each of the vertices white, gray or black.
+Keep track of progress: BFS here colors each of the vertices white, gray or black.
 All vertices are initialized to white when they are constructed, a white vertex is an undiscovered vertex.
 The BFS begins at the starting vertex 's' and color gray (currently explored). For 's', distance=0 and predecessor=None.
 Start 's' is placed in a queue, next step is begin to explore vertices by iterating over its adjacency list.
