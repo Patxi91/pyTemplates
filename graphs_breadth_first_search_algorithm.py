@@ -8,7 +8,7 @@ from graphs_algorithms import Graph
 Applications:
 - Web crawling
 - Social Network behaviour
-- Garbage collectors: Python, Cpython, Java, etc...
+- Garbage collectors: Python, CPython, Java, etc...
 - Model checking HW/SW --> Vertices are all states your program could reach
 - Checking mathematical conjecture --> Vertices are all possible inputs to theorem
 - Solving puzzles: 2x2 or 3x3 Rubik's Cube optimally
