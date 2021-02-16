@@ -17,7 +17,7 @@ class DFSGraph(Graph):
         self.time = 0
 
     def dfs(self):
-        for aVertex in self:
+        for aVertex in self:  # self --> instance of DFSGraph class
             aVertex.setColor('white')
             aVertex.setPred(-1)
         for aVertex in self:
