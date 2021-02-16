@@ -7,6 +7,7 @@ Search as deep as possible, connecting as many nodes in the graph as possible, b
 The predecessor links (parents pointers) are used to construct the tree.
 :param: Discovery time: Tracks the number of steps in the algorithm before a vertex is first encountered,
 :param: Finish time: Number of steps in the algorithm before a vertex is colored black
+Parenthesis property: All children of a given node have a later discovery time and earlier finish time than their parent
 '''
 
 
@@ -35,10 +36,3 @@ class DFSGraph(Graph):
         startVertex.setColor('black')
         self.time += 1
         startVertex.setFinish(self.time)
-
-
-
-
-
-
-
