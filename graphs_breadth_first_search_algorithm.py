@@ -26,17 +26,17 @@ When BFS has completely explored a vertex, it is colored black.
 
 def bfs(g, start):
 
-    # Initialize starting vertex and place it in a queue
-    start.stDistance(0)
+    # Initialize starting vertex and place it at the end of the queue
+    start.setDistance(0)
     start.setPred(None)
     vertQueue = Queue()
-    vertQueue.enqueue(start)
+    vertQueue.enqueue(start)  # position 0
 
     while vertQueue.size() > 0:
         currentVert = vertQueue.dequeue()  # Explore each vertex at the front of queue
         for nbr in currentVert.getConnections():  # Iterate over its adjacency list
-            if nbr.getColor() == 'white':  # nbr = new unexplored vertex that will be colored
-                nbr.setColor('gray')  # Initially explored
+            if nbr.getColor() == 'white':  # nbr --> new unexplored vertex that will be colored
+                nbr.setColor('gray')  # Neighbor initially explored
                 nbr.setDistance(currentVert.getDistance() + 1)
                 nbr.setPred(currentVert)
                 vertQueue.enqueue(nbr)  # Add neighbour to the end of the Queue --> self.items.insert(0, item)
