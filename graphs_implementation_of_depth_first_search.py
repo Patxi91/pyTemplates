@@ -27,8 +27,8 @@ graph = {'A': set(['B', 'C']),
 # Iterative form
 
 def dfs_i(graph, start):
-    visited = set()
-    stack = [start]
+    visited = set()  # set of already visited vertices
+    stack = [start]  # pipeline of vertices to be visited
     while stack:
         vertex = stack.pop()
         if vertex not in visited:
