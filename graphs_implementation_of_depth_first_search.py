@@ -30,7 +30,7 @@ def dfs_i(graph, start):
     visited = set()  # set of already visited vertices
     stack = [start]  # pipeline of vertices to be visited
     while stack:
-        vertex = stack.pop()
+        vertex = stack.pop()  # treated as a stack --> pops off at the end
         if vertex not in visited:
             visited.add(vertex)
             stack.extend(graph[vertex] - visited)  # graph['A'] = set(['B', 'C']) --> set(['B', 'C']) - set ('A'). Using Python’s overloading of the subtraction operator.
