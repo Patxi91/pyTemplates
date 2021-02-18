@@ -15,11 +15,11 @@ https://en.wikipedia.org/wiki/Bridge_and_torch_problem
 
 
 Move [Time]
-(1) & (2) Cross with Torch	[2]
-(1) Returns with Torch	[1]
-(5) & (10) Cross with Torch	[10]
-(2) Returns with Torch	[2]
-(1) & (2) Cross with Torch	[2]
+(1) & (2) Cross with Torch [2]
+(1) Returns with Torch [1]
+(5) & (10) Cross with Torch [10]
+(2) Returns with Torch [2]
+(1) & (2) Cross with Torch [2]
 Total [17]
 '''
 
