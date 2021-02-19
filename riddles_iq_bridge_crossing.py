@@ -1,6 +1,7 @@
 
 '''
 Bridge Crossing:
+
 A group of four travelers comes to a bridge at night.
 The bridge can hold the weight of at most only two of the travelers at a time.
 The bridge cannot be crossed without using a flashlight, and the travelers have one flashlight among them.
