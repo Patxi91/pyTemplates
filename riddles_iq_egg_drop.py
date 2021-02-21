@@ -33,6 +33,9 @@ If first egg has not broken so far, then the i-th trial has to be from floor num
 So we can cover x + (x – 1) + (x – 2) …. + 2 + 1 floors with x trials. The value of this expression is x * (x + 1) / 2.
 Then the optimal x for a given k floors is: x * (x + 1)/2 >= k  --> if k=100 then x=13.65 that is 14.
 The optimal value of x can be written as: (-1 + sqrt(1+8k))/2
+
+If n =100, then x would be 13.65 which since we can't drop from a decimal of a floor, we actually use 14.
+So, the worst case scenario is now when the threshold is in the first 14 floors with number of drops being 14.
 '''
 
 
@@ -68,6 +71,6 @@ def binary_search(arr, ele):
 k = 100
 print(f'The worst scenario with 2 eggs and 100 floors would be {twoEggDrop(k)} drops.')
 
-arr = np.random.rand(100)  # generate 100 floors values
-arr[np.random.randint(0, 100)] = 1  # Allocate limit floor represented with a value 1
-print(f'The binary search did it in {binary_search(arr, 1)} drops this time!')  # n < (-1 + sqrt(1+8k))/2
+arr = np.arange(1, 101, 1)  # generate 100 floors values
+highest_floor = 79  # highest floor the egg could be thrown without breaking
+print(f'The binary search found floor #{highest_floor} in {binary_search(arr, highest_floor)} drops!')  # The binary search found floor #79 in 6 drops!, n < (-1 + sqrt(1+8k))/2
