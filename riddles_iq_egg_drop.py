@@ -74,4 +74,3 @@ print(f'The worst scenario with 2 eggs and 100 floors would be {twoEggDrop(k)} d
 arr = np.arange(1, 101, 1)  # generate 100 floors values
 highest_floor = 79  # highest floor the egg could be thrown without breaking
 print(f'The binary search found floor #{highest_floor} in {binary_search(arr, highest_floor)} drops!')  # The binary search found floor #79 in 6 drops!, n < (-1 + sqrt(1+8k))/2
-
