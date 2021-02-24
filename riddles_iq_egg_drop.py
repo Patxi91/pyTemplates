@@ -69,7 +69,7 @@ def binary_search(arr, ele):
 
 # Driver
 k = 100
-print(f'The worst scenario with 2 eggs and 100 floors would be {twoEggDrop(k)} drops.')
+print(f'The worst scenario with 2 eggs and 100 floors would be {twoEggDrop(k)} drops.')  # The worst scenario with 2 eggs and 100 floors would be 14 drops
 
 arr = np.arange(1, 101, 1)  # generate 100 floors values
 highest_floor = 79  # highest floor the egg could be thrown without breaking
