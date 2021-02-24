@@ -44,9 +44,20 @@ print(f'From {ndoors}, a total of {np.sum(doors)} doors remain open.')  # From 1
 
 
 # Optimized: Only visits each door once
+def doors_optimized(m):
+    doors = [False] * m  # Closed
+    for i in range(1, 101):
+        root = i ** 0.5
+        if root == int(root):
+            doors[i-1] = True
+        else:
+            doors[i-1] = False
+        print(f'Door {i}:', 'open' if root == int(root) else 'close')
+    return doors
 
-
-
+ndoors = 100
+doors = np.array(doors_optimized(ndoors))
+print(f'From {ndoors}, a total of {np.sum(doors)} doors remain open.')  # From 100, a total of 10 doors remain open.
 
 
 
