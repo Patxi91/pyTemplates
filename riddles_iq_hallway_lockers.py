@@ -60,6 +60,7 @@ doors = np.array(doors_optimized(ndoors))
 print(f'From {ndoors}, a total of {np.sum(doors)} doors remain open.')  # From 100, a total of 10 doors remain open.
 
 
+# One liners
+print('\n'.join(['Door %s is %s' % (i, ('closed', 'open')[(i**0.5).is_integer()]) for i in range(1, 101)]))
 
-
-
+for i in range(1,11): print("Door %s is open" % i**2)
