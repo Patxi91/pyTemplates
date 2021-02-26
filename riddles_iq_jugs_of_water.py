@@ -30,8 +30,7 @@ def gcd(a, b):
 
 
 def pour(toJugCap, fromJugCap, d):
-    # Initialize current amount of water
-    # in source and destination jugs
+    # Initialize current amount of water in source and destination jugs
     fromJug = fromJugCap
     toJug = 0
 
@@ -39,8 +38,7 @@ def pour(toJugCap, fromJugCap, d):
     step = 1
     while fromJug != d and toJug != d:
 
-        # Find the maximum amount that can be
-        # poured
+        # Find the maximum amount that can be poured
         temp = min(fromJug, toJugCap - toJug)
 
         # Pour 'temp' liter from 'fromJug' to 'toJug'
@@ -64,8 +62,7 @@ def pour(toJugCap, fromJugCap, d):
     return step
 
 
-# Returns count of minimum steps needed to
-# measure d liter
+# Returns count of minimum steps needed to measure d liter
 def minSteps(n, m, d):
     if m > n:
         temp = m
@@ -75,10 +72,8 @@ def minSteps(n, m, d):
     if d % gcd(n, m) != 0:
         return -1
 
-    # Return minimum two cases:
-    # a) Water of n liter jug is poured into
-    #    m liter jug
-    return (min(pour(n, m, d), pour(m, n, d)))
+    # Return minimum two cases: Water of n liter jug is poured into m liter jug
+    return min(pour(n, m, d), pour(m, n, d))
 
 
 # Driver code
