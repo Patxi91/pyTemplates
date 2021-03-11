@@ -31,16 +31,3 @@ def fib(n):
 
 f = memoize(f)
 result = fib(-1000)
-
-
-
-
-
-
-
-
-
-
-
-
-
