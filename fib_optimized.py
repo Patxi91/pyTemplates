@@ -62,10 +62,12 @@ def fib_dyn(n):
 
     return cache[str(n)]
 
-
-for n in range(0, 2000, 50000):
-    print(fib_dyn(n))
-    time.sleep(0.1)  # Seconds
+target = 150000 # nth Fibonacci
+for n in range(0, target, 2000):
+    fib_dyn(n)
+    print(n)
+    time.sleep(0.01)  # Seconds
+result = fib_dyn(target)
 
 
 
