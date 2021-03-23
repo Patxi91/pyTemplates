@@ -57,17 +57,17 @@ def fib_dyn(n):
         return n
 
     # Check cache
-    if str(n) in cache:
-        return cache[str(n)]
+    if n in cache:
+        return cache[n]
     else:  # Keep setting cache
-        cache[str(n)] = fib_dyn(n - 1) + fib_dyn(n - 2)
+        cache[n] = fib_dyn(n - 1) + fib_dyn(n - 2)
 
-    return cache[str(n)]
+    return cache[n]
 
 
-target = 300000 # nth Fibonacci
+target = 500000 # nth Fibonacci
 
-for n in range(0, target, 5000):
+for n in range(0, target, 2000):
     fib_dyn(n)
     print(n)
     time.sleep(0.01)  # Seconds
