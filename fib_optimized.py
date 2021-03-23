@@ -1,3 +1,5 @@
+import sys
+sys.setrecursionlimit(50000)
 import time
 
 # Dynamically -> Instantiate Cache information
@@ -62,10 +64,11 @@ def fib_dyn(n):
 
     return cache[str(n)]
 
-target = 150000 # nth Fibonacci
-for n in range(0, target, 2000):
+
+target = 300000 # nth Fibonacci
+
+for n in range(0, target, 5000):
     fib_dyn(n)
     print(n)
     time.sleep(0.01)  # Seconds
 result = fib_dyn(target)
-
