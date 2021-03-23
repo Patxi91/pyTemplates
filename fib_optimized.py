@@ -69,10 +69,3 @@ for n in range(0, target, 2000):
     time.sleep(0.01)  # Seconds
 result = fib_dyn(target)
 
-
-
-
-
-
-
-
