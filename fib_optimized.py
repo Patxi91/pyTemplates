@@ -52,3 +52,22 @@ def fibiter(a, b, p, q, count):
         return fibiter(a, b, p * p + q * q, q * q + 2 * p * q, count / 2)
     else:
         return fibiter(b * q + a * q + a * p, b * p + a * q, p, q, count - 1)
+
+
+# Matrix Approach
+
+def fib(n):
+    if n < 0: return (-1)**(n % 2 + 1) * fib(-n)
+    a = b = x = 1
+    c = y = 0
+    while n:
+        if n % 2 == 0:
+          (a, b, c) = (a * a + b * b,
+                       a * b + b * c,
+                       b * b + c * c)
+          n /= 2
+        else:
+          (x, y) = (a * x + b * y,
+                    b * x + c * y)
+          n -= 1
+    return y
