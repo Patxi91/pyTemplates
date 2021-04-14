@@ -5,7 +5,7 @@ from io import BytesIO
 '''
 Jugs of Water:
 
-Having a ive gallons jug and a three gallons jug, and an unlimited supply of water (but no measuring cups).
+Having a five gallons jug and a three gallons jug, and an unlimited supply of water (but no measuring cups).
 What is the minimum number of steps to come up exactly with four gallons of water?
 '''
 
