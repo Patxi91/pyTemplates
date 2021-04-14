@@ -22,9 +22,9 @@ def gcd(a, b):
     return gcd(b, a % b)
 
 
-''' fromCap -- Capacity of jug from which
+''' fromJugCap -- Capacity of jug from which
               water is poured
-   toCap   -- Capacity of jug to which
+   toJugCap   -- Capacity of jug to which
               water is poured
    d       -- Amount to be measured '''
 
