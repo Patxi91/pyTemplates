@@ -6,5 +6,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Python 3.8" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="CodeWars_AkkaRS" />
+    <orderEntry type="module" module-name="Github" />
   </component>
 </module>
