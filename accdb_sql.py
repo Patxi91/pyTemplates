@@ -90,4 +90,3 @@ while tables:
     except:
         print(f'Tabelle "{table_name}" wurde NICHT hinzugefügt.')
         pass
-
