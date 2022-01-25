@@ -64,7 +64,7 @@ tables = [table.table_name for table in conn_acc.cursor().tables(tableType='TABL
 
 #connect = f"postgresql+psycopg2://{conn_sql.info.user}:{conn_sql.info.password}@{conn_sql.info.host}:{conn_sql.info.port}/{conn_sql.info.dbname}"
 #engine = create_engine(connect, pool_pre_ping=True)
-connection_string = "DRIVER={ODBC Driver 17 for SQL Server};SERVER=finversedb.database.windows.net;DATABASE=Muster_DB;UID=finverse;PWD=ra8-.:}3J94Ps=d?"
+connection_string = "DRIVER={ODBC Driver 17 for SQL Server};SERVER=finversedb.database.windows.net;DATABASE=Muster_DB;UID=finverse;PWD="
 connection_url = URL.create("mssql+pyodbc", query={"odbc_connect": connection_string})
 engine = create_engine(connection_url, pool_pre_ping=True, fast_executemany=True)
 
