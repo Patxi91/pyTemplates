@@ -37,12 +37,12 @@ def main(url):
             driver.switch_to.window(driver.window_handles[-1])
             try:
                 # Wait for the LinkedIn profile link to be present and click it
-                linkedin_link = WebDriverWait(driver, 10).until(
+                linkedin_link = WebDriverWait(driver, 3).until(
                     EC.presence_of_element_located((By.XPATH, "//a[contains(@href, 'linkedin.com/in/')]"))
                 )
                 linkedin_url = linkedin_link.get_attribute('href')
                 print(linkedin_url)
-                driver.execute_script("window.open('"+linkedin_url+"', '_blank');")
+                #driver.execute_script("window.open('"+linkedin_url+"', '_blank');")
             except:
                 # If the LinkedIn link is not found, continue to the next link
                 pass
