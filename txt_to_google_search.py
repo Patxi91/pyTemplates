@@ -1,0 +1,26 @@
+import webbrowser
+
+# Define the text file path
+file_path = "C:\\Users\\u58470\\Downloads\\data_AI_summit_virtual_experience.txt"
+
+try:
+    with open(file_path, "r") as file:
+        # Read the file line by line
+        lines = file.readlines()
+
+        # Initialize a variable to store the concatenated search terms
+        concatenated_search = ""
+
+        # Iterate through the lines with a step of 4
+        for i in range(0, len(lines), 4):
+            # Extract and concatenate the search terms from all four lines
+            concatenated_search = "".join(lines[i:i+4]).strip()
+
+            # Open a Chrome tab with the concatenated search terms
+            search_url = f"https://www.google.com/search?q={concatenated_search}"
+            webbrowser.open_new_tab(search_url)
+
+except FileNotFoundError:
+    print(f"File '{file_path}' not found.")
+except Exception as e:
+    print(f"An error occurred: {str(e)}")
