@@ -1,0 +1,8 @@
+@check
+git config --global user.name
+git config --global user.email
+
+@mygithub
+git config --global --unset-all user.name
+git config --global user.name “Patxi Oyaga”
+git config --global user.email “@gmail.com”
