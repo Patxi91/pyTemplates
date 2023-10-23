@@ -11,10 +11,11 @@ try:
         # Initialize a variable to store the concatenated search terms
         concatenated_search = ""
 
-        # Iterate through the lines with a step of 4
-        for i in range(0, len(lines), 4):
+        # Iterate through the lines with a step of n
+        n = 4
+        for i in range(0, len(lines), n):
             # Extract and concatenate the search terms from all four lines
-            concatenated_search = "".join(lines[i:i+4]).strip()
+            concatenated_search = "".join(lines[i:i+n]).strip()
 
             # Open a Chrome tab with the concatenated search terms
             search_url = f"https://www.google.com/search?q={concatenated_search}"
