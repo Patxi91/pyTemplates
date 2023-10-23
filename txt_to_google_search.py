@@ -1,10 +1,10 @@
 import webbrowser
 
 # Define the text file path
-file_path = "C:\\Users\\u58470\\Downloads\\data_AI_summit_virtual_experience.txt"
+file_path = "C:\\Users\\PATH\\file_name.txt"
 
 try:
-    with open(file_path, "r") as file:
+    with open(file_path, "r", encoding='utf-8') as file:
         # Read the file line by line
         lines = file.readlines()
 
