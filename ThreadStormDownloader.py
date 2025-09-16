@@ -128,11 +128,12 @@ async def download_file():
 
                 pbar.close()
                 monitor_task.cancel()
-
+                ''' The following lines are removed to prevent writing the file to disk. List now holds the entire file content in RAM.
                 with open(temp_path, "wb") as f:
                     for chunk in results:
                         f.write(chunk)
                 os.replace(temp_path, DOWNLOAD_PATH)
+                '''
                 print("✅ Download complete.")
                 return
 
