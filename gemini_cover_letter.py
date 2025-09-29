@@ -5,11 +5,30 @@ import google.generativeai as genai
 import requests
 from bs4 import BeautifulSoup
 
+# --- Gemini Model Selection ---
+def get_latest_flash_model(api_key):
+    """
+    Returns the latest available Gemini flash model name using the ListModels API.
+    """
+    try:
+        genai.configure(api_key=api_key)
+        models = genai.list_models()
+        # Filter for flash models
+        flash_models = [m.name for m in models if "flash" in m.name]
+        if not flash_models:
+            raise Exception("No Gemini flash models found.")
+        # Sort by version number (assumes format gemini-<version>-flash)
+        flash_models.sort(reverse=True)
+        return flash_models[0]
+    except Exception as e:
+        print(f"Error fetching Gemini flash models: {e}")
+        return "gemini-2.5-flash"  # fallback
+
 # --- Configuration ---
 
 # IMPORTANT: It's recommended to set your API key as an environment variable
 # for security reasons, rather than hardcoding it.
-API_KEY = os.getenv("GOOGLE_API_KEY", "API_KEY") # Replace with your key if not using env var
+API_KEY = os.getenv("GOOGLE_API_KEY", "TOP_SECRET_KEY") # Replace with your key if not using env var
 
 # Your predefined skills and details.
 # The availability and rate are now handled dynamically.
@@ -24,12 +43,14 @@ FRANCISCOS_SKILLS = """
 # --- Main Functions ---
 
 def configure_genai():
-    """Configures the Generative AI model."""
+    """Configures the Generative AI model with the latest flash version."""
     try:
         if not API_KEY or API_KEY == "YOUR_API_KEY":
             raise ValueError("Google Gemini API Key is not configured. Please replace 'YOUR_API_KEY' or set the GOOGLE_API_KEY environment variable.")
+        latest_flash_model = get_latest_flash_model(API_KEY)
         genai.configure(api_key=API_KEY)
-        return genai.GenerativeModel('gemini-1.5-flash')
+        print(f"Using Gemini model: {latest_flash_model}")
+        return genai.GenerativeModel(latest_flash_model)
     except Exception as e:
         print(f"Error configuring Generative AI: {e}")
         return None
@@ -72,7 +93,7 @@ def extract_job_details(model, website_text):
 
     - "job_title": The official title of the job.
     - "job_description": A detailed summary of the role, responsibilities, and required qualifications. Include any keywords mentioned.
-    - "language": The primary language the job posting is written in (e.g., "English", "German").
+    - "language": The primary language the job posting is written in, should be the language that the description or Beschreibung is written in and not only the title (e.g., "English", "German").
     - "job_location": The city and country where the job is located. If remote, state "Remote". If not specified, state "Not specified".
 
     Job Posting Text:
@@ -97,12 +118,12 @@ def get_dynamic_availability_and_rate(location_text):
     if re.search(r'\b(germany|deutschland|de)\b', location_text, re.IGNORECASE):
         rate_info = "EUR 110"
     elif re.search(r'\b(switzerland|schweiz|suisse|svizzera|ch)\b', location_text, re.IGNORECASE):
-        rate_info = "CHF 120"
+        rate_info = "CHF 130"
     else:
         # Default case if location is not Germany or Switzerland
-        rate_info = "CHF 120"
+        rate_info = "CHF 130"
 
-    return f"- Available immediately – five days a week – at an hourly rate of {rate_info} remotely."
+    return f"- Available immediately – five days a week – at an hourly rate of {rate_info}."
 
 def generate_tailored_cover_letter(model, job_title, job_description, skills_with_rate, job_language):
     """Generates the final cover letter based on the provided template."""
