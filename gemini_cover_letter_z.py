@@ -9,7 +9,7 @@ from bs4 import BeautifulSoup
 
 # IMPORTANT: It's recommended to set your API key as an environment variable
 # for security reasons, rather than hardcoding it.
-API_KEY = os.getenv("GOOGLE_API_KEY", "API_KEY") # Replace with your key if not using env var
+API_KEY = os.getenv("GOOGLE_API_KEY", "TOP_SECRET_KEY") # Replace with your key if not using env var
 
 # Zoe's predefined skills and contact information
 ZOES_SKILLS = """
@@ -32,15 +32,37 @@ zoeweng1111@gmail.com | +41 778075805
 https://www.linkedin.com/in/zoe-weng/
 """
 
+
+# --- Gemini Model Selection ---
+def get_latest_flash_model(api_key):
+    """
+    Returns the latest available Gemini flash model name using the ListModels API.
+    """
+    try:
+        genai.configure(api_key=api_key)
+        models = genai.list_models()
+        # Filter for flash models
+        flash_models = [m.name for m in models if "flash" in m.name]
+        if not flash_models:
+            raise Exception("No Gemini flash models found.")
+        # Sort by version number (assumes format gemini-<version>-flash)
+        flash_models.sort(reverse=True)
+        return flash_models[0]
+    except Exception as e:
+        print(f"Error fetching Gemini flash models: {e}")
+        return "gemini-2.5-flash"  # fallback
+        
 # --- Main Functions ---
 
 def configure_genai():
-    """Configures the Generative AI model."""
+    """Configures the Generative AI model with the latest flash version."""
     try:
         if not API_KEY or API_KEY == "YOUR_API_KEY":
             raise ValueError("Google Gemini API Key is not configured. Please replace 'YOUR_API_KEY' or set the GOOGLE_API_KEY environment variable.")
+        latest_flash_model = get_latest_flash_model(API_KEY)
         genai.configure(api_key=API_KEY)
-        return genai.GenerativeModel('gemini-1.5-flash')
+        print(f"Using Gemini model: {latest_flash_model}")
+        return genai.GenerativeModel(latest_flash_model)
     except Exception as e:
         print(f"Error configuring Generative AI: {e}")
         return None
@@ -83,7 +105,7 @@ def extract_job_details(model, website_text):
 
     - "job_title": The official title of the job.
     - "job_description": A detailed summary of the role, responsibilities, and required qualifications. Include any keywords mentioned.
-    - "language": The primary language the job posting is written in (e.g., "English", "German").
+    - "language": The primary language the job posting is written in, should be the language that the description or Beschreibung is written in and not only the title (e.g., "English", "German").
 
     Job Posting Text:
     ---
